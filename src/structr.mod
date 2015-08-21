@@ -1,0 +1,104 @@
+GFORTRAN module version '0' created from main.f on Thu Mar 14 10:53:02 2013
+MD5:1d56fb4c443c6c553a400cfeb0843ebf -- If you edit this, you'll get what you deserve.
+
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+()
+
+()
+
+()
+
+(2 'cbox' 'structr' 'cbox' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0
+INTEGER ()) 0 '3')) 0 () () () 0 0)
+3 'cdens' 'structr' 'cdens' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+4 'ctitle' 'structr' 'ctitle' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN) (CHARACTER 1 0 0 CHARACTER ((CONSTANT (INTEGER 4 0 0
+INTEGER ()) 0 '70'))) 0 0 () () 0 () () () 0 0)
+5 'cube' 'structr' 'cube' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0
+INTEGER ()) 0 '3')) 0 () () () 0 0)
+6 'cube2' 'structr' 'cube2' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0
+INTEGER ()) 0 '3')) 0 () () () 0 0)
+7 'cube_r' 'structr' 'cube_r' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (1 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0
+INTEGER ()) 0 '3')) 0 () () () 0 0)
+8 'dconv' 'structr' 'dconv' 1 ((PARAMETER UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN IMPLICIT-SAVE) (REAL 8 0 0 REAL ()) 0 0 () (CONSTANT (REAL 8 0 0
+REAL ()) 0 '0.1a9190ec4bee15@1') () 0 () () () 0 0)
+9 'itr' 'structr' 'itr' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN ALLOCATABLE DIMENSION) (INTEGER 4 0 0 INTEGER ()) 0 0 () (1
+DEFERRED () ()) 0 () () () 0 0)
+10 'ktype' 'structr' 'ktype' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+(1 DEFERRED () ()) 0 () () () 0 0)
+11 'mlist' 'structr' 'mlist' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+(1 DEFERRED () ()) 0 () () () 0 0)
+12 'mtot' 'structr' 'mtot' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+13 'mxndens' 'structr' 'mxndens' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () ()
+0 0)
+14 'nlist' 'structr' 'nlist' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+(1 DEFERRED () ()) 0 () () () 0 0)
+15 'nma' 'structr' 'nma' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+16 'noa' 'structr' 'noa' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (INTEGER 4 0 0 INTEGER ()) 0 0 ()
+(1 DEFERRED () ()) 0 () () () 0 0)
+17 'np' 'structr' 'np' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+18 'nta' 'structr' 'nta' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+19 'r0' 'structr' 'r0' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2 DEFERRED ()
+() () ()) 0 () () () 0 0)
+20 'r0l' 'structr' 'r0l' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2
+DEFERRED () () () ()) 0 () () () 0 0)
+21 'r1' 'structr' 'r1' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2 DEFERRED ()
+() () ()) 0 () () () 0 0)
+22 'r2' 'structr' 'r2' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2 DEFERRED ()
+() () ()) 0 () () () 0 0)
+23 'r3' 'structr' 'r3' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2 DEFERRED ()
+() () ()) 0 () () () 0 0)
+24 'r4' 'structr' 'r4' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN ALLOCATABLE DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2 DEFERRED ()
+() () ()) 0 () () () 0 0)
+25 'rmn' 'structr' 'rmn' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN DIMENSION) (REAL 8 0 0 REAL ()) 0 0 () (2 EXPLICIT (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (CONSTANT (INTEGER 4 0 0
+INTEGER ()) 0 '2') (CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '1') (
+CONSTANT (INTEGER 4 0 0 INTEGER ()) 0 '3')) 0 () () () 0 0)
+26 'rrl' 'structr' 'rrl' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+27 'sss' 'structr' 'sss' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN) (INTEGER 4 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+28 'structr' 'structr' 'structr' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN) (UNKNOWN 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0 0)
+29 'vol' 'structr' 'vol' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+30 'volmxn' 'structr' 'volmxn' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN) (REAL 8 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+)
+
+('cbox' 0 2 'cdens' 0 3 'ctitle' 0 4 'cube' 0 5 'cube2' 0 6 'cube_r' 0 7
+'dconv' 0 8 'itr' 0 9 'ktype' 0 10 'mlist' 0 11 'mtot' 0 12 'mxndens' 0
+13 'nlist' 0 14 'nma' 0 15 'noa' 0 16 'np' 0 17 'nta' 0 18 'r0' 0 19 'r0l'
+0 20 'r1' 0 21 'r2' 0 22 'r3' 0 23 'r4' 0 24 'rmn' 0 25 'rrl' 0 26 'sss'
+0 27 'structr' 0 28 'vol' 0 29 'volmxn' 0 30)
