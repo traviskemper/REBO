@@ -1,0 +1,66 @@
+MKBM
+readwrite.f:182:          READ(12,*) var,dumb,MKBM
+readwrite.f:290:       CALL MPI_BCAST(MKBM,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
+readwrite.f:375:      IF (MKBM)  THEN
+readwrite.f:500:         IF( MKBM ) THEN
+readwrite.f:518:      IF( MKBM ) NP = NP - NPM*NC
+readwrite.f:568:        IF( MKBM ) CALL MKBEAM
+CENTR
+readwrite.f:184:          READ(12,*) var,dumb,CENTR
+readwrite.f:291:       CALL MPI_BCAST(CENTR,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
+readwrite.f:371:      IF (CENTR) WRITE(6,*)'  The system will be centered'
+readwrite.f:562:        IF ( CENTR ) CALL centstr
+SHFT
+readwrite.f:186:          READ(12,*) var,dumb,SHFT
+readwrite.f:564:        IF ( SHFT) CALL shift 
+THBUF
+readwrite.f:202:          READ(12,*) var,dumb,THBUF
+readwrite.f:298:       CALL MPI_BCAST(THBUF,1,MPI_REAL8,0,MPI_COMM_WORLD,ierr)
+DEPD=
+DBUF
+readwrite.f:200:          READ(12,*) var,dumb,DBUF
+readwrite.f:297:       CALL MPI_BCAST(DBUF,1,MPI_REAL8,0,MPI_COMM_WORLD,ierr)
+readwrite.f:380:        WRITE(6,602)'    Which should be ',DBUF,' A'
+MNDEPV
+module_parameters.f:9:      INTEGER :: DMS,NCC,MNDEPV
+DEPAN
+readwrite.f:165:        ELSEIF  ( VAR(1:11) .eq. 'DEPANALYSIS' ) THEN
+readwrite.f:166:          READ(12,*) var,dumb,DEPAN
+readwrite.f:284:       CALL MPI_BCAST(DEPAN,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
+readwrite.f:399:      IF(DEPAN)WRITE(6,*)'    Deposition'
+MOLAN
+readwrite.f:163:        ELSEIF  ( VAR(1:11) .eq. 'MOLANALYSIS' ) THEN
+readwrite.f:164:          READ(12,*) var,dumb,MOLAN
+readwrite.f:174:          READ(12,*) var,dumb,SMOLAN
+readwrite.f:258:         IF(MOLAN) OPEN(UNIT=28,FILE='out.gasmol',STATUS='UNKNOWN')
+readwrite.f:259:         IF(SMOLAN) OPEN(UNIT=29,FILE='out.surfmol',STATUS='UNKNOWN')
+readwrite.f:283:       CALL MPI_BCAST(MOLAN,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
+readwrite.f:285:       CALL MPI_BCAST(SMOLAN,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
+readwrite.f:395:      IF(MOLAN)WRITE(6,*)'    Molecular composition'
+readwrite.f:396:      IF(SMOLAN)WRITE(6,*)'    Surface species analysis'
+REFSTR
+readwrite.f:178:          READ(12,*) var,dumb,REFSTR
+readwrite.f:288:       CALL MPI_BCAST(REFSTR,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
+RECAN
+main.f:110:!      IF(RECAN) CALL checksub
+readwrite.f:172:          READ(12,*) var,dumb,RECAN
+readwrite.f:261:         IF(RECAN)OPEN(UNIT=31,FILE='out.element',STATUS='UNKNOWN')
+readwrite.f:263:         IF(RECAN)OPEN(UNIT=33,FILE='out.bonds',STATUS='UNKNOWN')
+readwrite.f:286:       CALL MPI_BCAST(RECAN,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
+readwrite.f:397:      IF(RECAN)WRITE(6,*)'    Reactions
+readwrite.f:526:          IF( RECAN ) THEN
+HBUF
+readwrite.f:198:          READ(12,*) var,dumb,HBUF
+readwrite.f:202:          READ(12,*) var,dumb,THBUF
+readwrite.f:296:       CALL MPI_BCAST(HBUF,1,MPI_REAL8,0,MPI_COMM_WORLD,ierr)
+readwrite.f:298:       CALL MPI_BCAST(THBUF,1,MPI_REAL8,0,MPI_COMM_WORLD,ierr)
+CLRGAS
+readwrite.f:188:          READ(12,*) var,dumb,CLRGAS
+readwrite.f:292:       CALL MPI_BCAST(CLRGAS,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
+readwrite.f:400:      IF(CLRGAS)WRITE(6,*)
+DEPPROF
+readwrite.f:168:          READ(12,*) var,dumb,DEPPROF
+readwrite.f:415:      IF(DEPPROF ) THEN
+DPDIV
+readwrite.f:170:          READ(12,*) var,dumb,DPDIV
+readwrite.f:419:     &             ,'divisions of ',DPDIV,' A each'

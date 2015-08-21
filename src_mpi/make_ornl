@@ -1,0 +1,12 @@
+/opt/mpich-ch_p4-icc-1.2.7/bin/mpif90 -static -tpp7 -O4 -w -o chosp1.x main.f
+##/opt/mpich-ch_p4-icc-1.2.7/bin/mpif90 -static -tpp7 -O4 -w -check all -traceback  -o chosp1.x main.f
+
+
+
+
+##/opt/intel/mpi/1.0.2/bin/mpiifort  -static -tpp7 -O4 -w -o chosp1.x main.f
+##cat module_dynarray.f main.f >main_all.f
+##/opt/intel/mpich-1.2.7p1/bin/mpif90 -static -tpp7 -O4 -w -check all -traceback  -o main.x main.f
+##/opt/intel/mpi/1.0.2/bin/mpiifort -static -tpp7 -O4 -w -o chosp6.x main.f
+###/opt/mpich/intel/bin/mpif90 -w -O4 -o main.x main_all.f
+###/opt/mpich/intel/bin/mpif90 -o main.x main.f

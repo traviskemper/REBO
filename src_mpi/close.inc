@@ -1,0 +1,15 @@
+
+       close(85)
+       close(50)
+       close(51) 
+       close(11)
+       close(14)
+       close(15)
+       close(16)
+       close(17)
+       close(18)
+
+c       close(8)
+c      close(36)
+c      close(35)
+c        close(14)
