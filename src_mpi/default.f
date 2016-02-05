@@ -1,5 +1,5 @@
-! Subroutines to set default parameters i
-!   which can be overwriten in the input file 
+C Subroutines to set default parameters i
+C   which can be overwriten in the input file 
 
       SUBROUTINE STDFLT
 ! 
@@ -7,6 +7,8 @@
       USE STRUCTR
       USE SPECIF
       USE PARAMS
+      USE ANALYSIS
+      USE BEAM
       USE POTS
 !
       IMPLICIT none
@@ -77,6 +79,31 @@ C Heat
           HT = .FALSE. !Heat structure
           TMAX = 600.0d0
           DT = 50 !K/ps
+! Beam 
+      MKBM = .FALSE.
+      CENTR = .FALSE.
+      SHFT = .FALSE.
+!     Set buff area between heat bath and deposited atoms
+      THBUF = 5.0  !Angstroms
+!     Set dimension of deposition
+      DEPD=3  !Z
+      DBUF = 7.0  !Hight of beam off substrate 
+      MNDEPV = -0.001d0 ! minimum velocity to be considered a beam molecule
+
+!
+! Analysis
+      DEPAN = .FALSE. !Moleculare analysis 
+      MOLAN = .FALSE. !Moleculare analysis 
+      REFSTR = .FALSE. !Use referance strucuture as point of comparison
+      RECAN = .FALSE. !Moleculare analysis 
+!     Set buffer region
+      HBUF = 10.  !Max hight to be counted as substrate 
+! Clear gas molecules
+      CLRGAS = .FALSE.
+! Atomic depth profile
+      DEPPROF = .FALSE.
+      DPDIV  = 5.0d0
+      
 !
       ENDIF
 !

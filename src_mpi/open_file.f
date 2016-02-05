@@ -3,6 +3,7 @@
 
       USE MPIvars
       USE SPECIF 
+      USE ANALYSIS
 
       IMPLICIT none
 c

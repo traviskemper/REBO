@@ -67,6 +67,8 @@ C        WRITE(6,102) day1,day2,2000+day3,sec
       SUBROUTINE READMOL
 !
       USE MPIvars
+      USE BEAM
+      USE ANALYSIS !only 4 DEN
       USE POTS
 !
       IMPLICIT none
@@ -106,7 +108,9 @@ C        WRITE(6,102) day1,day2,2000+day3,sec
       USE SPECIF
       USE STRUCTR
       USE POTS
+      USE ANALYSIS
       USE STRUCTR
+      USE BEAM
 !   
       IMPLICIT none
 !
@@ -150,12 +154,42 @@ C       BACKSPACE 12  !Find variable then go back a space and read it in
           READ(12,*) var,dumb,PRNPR
         ELSEIF  ( VAR(1:6) .eq. 'PRINTF' ) THEN
           READ(12,*) var,dumb,PRNF
+        ELSEIF  ( VAR(1:5) .eq. 'PAIR1' ) THEN
+          READ(12,*) var,dumb,PR1
+        ELSEIF  ( VAR(1:5) .eq. 'PAIR2' ) THEN
+          READ(12,*) var,dumb,PR2
         ELSEIF  ( VAR(1:10) .eq. 'INTEGRATOR' ) THEN
           READ(12,*) var,dumb,INTG
         ELSEIF  ( VAR(1:4) .eq. 'HEAT' ) THEN
           READ(12,*) var,dumb,HT
         ELSEIF  ( VAR(1:6) .eq. 'DELTAT' ) THEN
           READ(12,*) var,dumb,DT
+        ELSEIF  ( VAR(1:11) .eq. 'MOLANALYSIS' ) THEN
+          READ(12,*) var,dumb,MOLAN
+        ELSEIF  ( VAR(1:11) .eq. 'DEPANALYSIS' ) THEN
+          READ(12,*) var,dumb,DEPAN
+        ELSEIF  ( VAR(1:12) .eq. 'DEPTHPROFILE' ) THEN
+          READ(12,*) var,dumb,DEPPROF
+        ELSEIF  ( VAR(1:12) .eq. 'DEPTHPDIV' ) THEN
+          READ(12,*) var,dumb,DPDIV
+        ELSEIF  ( VAR(1:13) .eq. 'REACTANALYSIS' ) THEN
+          READ(12,*) var,dumb,RECAN
+        ELSEIF  ( VAR(1:15) .eq. 'SURFACEANALYSIS' ) THEN
+          READ(12,*) var,dumb,SMOLAN
+        ELSEIF  ( VAR(1:12) .eq. 'PRINTSUBINFO' ) THEN
+          READ(12,*) var,dumb,RECSUB
+        ELSEIF  ( VAR(1:7) .eq. 'READREF' ) THEN
+          READ(12,*) var,dumb,REFSTR
+        ELSEIF  ( VAR(1:6) .eq. 'DEPDIM' ) THEN
+          READ(12,*) var,dumb,DEPD
+        ELSEIF  ( VAR(1:6) .eq. 'MKBEAM' ) THEN
+          READ(12,*) var,dumb,MKBM
+        ELSEIF  ( VAR(1:6) .eq. 'CENTER' ) THEN
+          READ(12,*) var,dumb,CENTR
+        ELSEIF  ( VAR(1:5) .eq. 'SHIFT' ) THEN
+          READ(12,*) var,dumb,SHFT
+        ELSEIF  ( VAR(1:8) .eq. 'CLEARGAS' ) THEN
+          READ(12,*) var,dumb,CLRGAS
         ELSEIF  ( VAR(1:5) .eq. 'MDRUN' ) THEN
           READ(12,*) var,dumb,MDRUN
         ELSEIF  ( VAR(1:9) .eq. 'PRINTXMOL' ) THEN
@@ -164,6 +198,52 @@ C       BACKSPACE 12  !Find variable then go back a space and read it in
           READ(12,*) var,dumb,NSTR
         ELSEIF  ( VAR(1:8) .eq. 'PRINTCFG' ) THEN
           READ(12,*) var,dumb,PCFG
+        ELSEIF  ( VAR(1:6) .eq. 'SUBBUF' ) THEN
+          READ(12,*) var,dumb,HBUF
+        ELSEIF  ( VAR(1:6) .eq. 'DEPBUF' ) THEN
+          READ(12,*) var,dumb,DBUF
+        ELSEIF  ( VAR(1:8) .eq. 'THERMBUF' ) THEN
+          READ(12,*) var,dumb,THBUF
+        ELSEIF  ( VAR(1:6) .eq. 'NTHERM' ) THEN
+          READ(12,*) var,dumb,NTHRM
+        ELSEIF  ( VAR(1:7) .eq. 'RETHERM' ) THEN
+          READ(12,*) var,dumb,RTHRM
+        ELSEIF  ( VAR(1:8) .eq. 'BOXTHERM' ) THEN
+          READ(12,*) var,dumb,BXTHRM
+        ELSEIF  ( VAR(1:11) .eq. 'RIGIDBOXMIN' ) THEN
+          READ(12,*) var,dumb,RBOX(1,:)
+        ELSEIF  ( VAR(1:11) .eq. 'RIGIDBOXMAX' ) THEN
+          READ(12,*) var,dumb,RBOX(2,:)
+        ELSEIF  ( VAR(1:11) .eq. 'THERMBOXMIN' ) THEN
+          READ(12,*) var,dumb,TBOX(1,:)
+        ELSEIF  ( VAR(1:11) .eq. 'THERMBOXMAX' ) THEN
+          READ(12,*) var,dumb,TBOX(2,:)
+        ELSEIF  ( VAR(1:11) .eq. 'CUSTOMTHERM' ) THEN
+          READ(12,*) var,dumb,CUSTHRM
+        ELSEIF  ( VAR(1:12) .eq. 'WRITEINITIAL' ) THEN
+          READ(12,*) var,dumb,WSTRI
+        ELSEIF ( var(1:6).eq.'MVTIP' ) THEN
+         READ(12,*) var,dumb,MVTIP
+        ELSEIF ( var(1:7).eq.'MVSTEPS' ) THEN
+         READ(12,*) var,dumb,ISTEPS
+        ELSEIF ( var(1:11).eq.'TIPVELOCITY' ) THEN
+         READ(12,*) var,dumb,tpvel(:)
+        ELSEIF  ( VAR(1:8) .eq. 'ADDFORCE' ) THEN
+          READ(12,*) var,dumb,ADDFC
+        ELSEIF  ( VAR(1:9) .eq. 'FORCESTEP' ) THEN
+          READ(12,*) var,dumb,FSTEP
+        ELSEIF  ( VAR(1:9) .eq. 'FPRESSURE' ) THEN
+          READ(12,*) var,dumb,PRADF
+        ELSEIF  ( VAR(1:13) .eq. 'SURFDIMENSION' ) THEN
+          READ(12,*) var,dumb,SDIR
+        ELSEIF  ( VAR(1:13) .eq. 'PRESSURETHERM' ) THEN
+          READ(12,*) var,dumb,PTHRM
+        ELSEIF  ( VAR(1:11) .eq. 'PRESSUREBUF' ) THEN
+          READ(12,*) var,dumb,PRBUF
+        ELSEIF  ( VAR(1:11) .eq. 'PRINTLOAD' ) THEN
+          READ(12,*) var,dumb,PRNLD
+        ELSEIF  ( VAR(1:17) .eq. 'CROSSLINKANALYSIS' ) THEN
+          READ(12,*) var,dumb,CRSAN
         ELSEIF  ( VAR(1:1) .eq. '!' ) THEN
           READ(12,*) 
         ELSEIF  ( VAR(1:2) .eq. 'C ' ) THEN
@@ -204,11 +284,14 @@ C       BACKSPACE 12  !Find variable then go back a space and read it in
        CALL MPI_BCAST(INTG,1,MPI_INTEGER,0,MPI_COMM_WORLD,ierr)
        CALL MPI_BCAST(DT,1,MPI_REAL8,0,MPI_COMM_WORLD,ierr)
        CALL MPI_BCAST(HT,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
+       CALL MPI_BCAST(MOLAN,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
+       CALL MPI_BCAST(DEPAN,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
        CALL MPI_BCAST(SMOLAN,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
        CALL MPI_BCAST(RECAN,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
        CALL MPI_BCAST(RECSUB,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
        CALL MPI_BCAST(REFSTR,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
        CALL MPI_BCAST(DEPD,1,MPI_INTEGER,0,MPI_COMM_WORLD,ierr)
+       CALL MPI_BCAST(MKBM,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
        CALL MPI_BCAST(CENTR,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
        CALL MPI_BCAST(CLRGAS,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
        CALL MPI_BCAST(PXMOL,1,MPI_LOGICAL,0,MPI_COMM_WORLD,ierr)
@@ -242,7 +325,9 @@ C       BACKSPACE 12  !Find variable then go back a space and read it in
       USE SPECIF
       USE STRUCTR
       USE POTS
+      USE ANALYSIS
       USE STRUCTR
+      USE BEAM
 !
       IMPLICIT none
 !
@@ -293,6 +378,20 @@ C       BACKSPACE 12  !Find variable then go back a space and read it in
       IF (WSTRI) WRITE(6,*)'  The initial structure will be writen'
       IF (RTHRM) WRITE(6,*)'  The systems thermostates ',
      &                     ' will be reset to ', NTHRM
+      IF (MKBM)  THEN
+        WRITE(6,606)'  A beam of ',MTITLE,' at ',EB(DEPD)
+     &           ,'eV will be added '
+        WRITE(6,603)'    In the ',DEPD,' indexed direction'
+        WRITE(6,604)'    Starting at :',BMHT
+        WRITE(6,602)'    Which should be ',DBUF,' A'
+        WRITE(6,602)'    above the max point of the input geom '
+     &           ,RMN(2,DEPD),' A'
+      ENDIF
+      IF (PRNPR) THEN
+        WRITE(6,*)'  Information about',
+     &                           PR1,PR2
+     &                      ,'will be printed'
+      ENDIF
       IF (PRNF) WRITE(6,*)'  Forces for each atom will printed'
       IF (HT)  WRITE(6,608)'  System will be heated by',DT,'K/fs to '
      & ,TMAX,' K'
@@ -384,6 +483,8 @@ C       BACKSPACE 12  !Find variable then go back a space and read it in
       USE SPECIF
       USE PARAMS
       USE POTS
+      USE ANALYSIS
+      USE BEAM
       USE MDSTP
 !
       IMPLICIT none
@@ -462,6 +563,17 @@ C
             CALL write_error
           ENDIF
         ENDDO
+        IF( BXTHRM ) CALL SETTHRMBOX
+        IF( CUSTHRM ) CALL SETTHRMCUST
+        IF( PTHRM ) CALL prestherm
+! Center structure 
+        IF ( CENTR ) CALL centstr
+! I shift structure 
+        IF ( SHFT) CALL shift 
+! Make super cell
+!        IF ( SPCELL ) CALL supcell
+! Add beam molecules
+        IF( MKBM ) CALL MKBEAM
       ENDIF
 !
 !     Pass coordinate information to nodes
@@ -693,6 +805,7 @@ C      WRITE(*,*) 'finish write 2'
       USE PARAMS
       USE MDSTP
       USE SPECIF
+      USE ANALYSIS
       USE beam
 ! 
       IMPLICIT none
@@ -794,6 +907,7 @@ C local variable
       USE PARAMS
       USE MDSTP
       USE SPECIF
+      USE ANALYSIS
       USE beam
 ! 
       IMPLICIT none
@@ -927,6 +1041,7 @@ C local variable
       SUBROUTINE WRITE_SUB
 !
       USE MPIvars
+      USE ANALYSIS
       USE STRUCTR
       USE POTS
       USE SPECIF

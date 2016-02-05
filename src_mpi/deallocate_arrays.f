@@ -10,6 +10,7 @@
        USE SPECIF 
        USE MDSTP
        USE CONTM
+       USE ANALYSIS
 !
        IMPLICIT none
 !

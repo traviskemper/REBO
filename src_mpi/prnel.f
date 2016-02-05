@@ -1,0 +1,336 @@
+C Produces a count of each elment and molecular formula
+!
+      SUBROUTINE PRNEL(CNT,PREL)
+!
+      USE ANALYSIS
+      USE STRUCTR
+      USE POTS
+      USE MPIvars
+!
+      IMPLICIT none
+!
+      INCLUDE 'mpif.h'
+!
+      INTEGER :: CNT,C,A,I,N,PCNT 
+      INTEGER  :: ELCNT(NTYPES)
+      CHARACTER(30) :: PREL
+      CHARACTER(2) :: ID
+!
+      IF ( mynode.EQ.0 )THEN
+       IF ( CNT.GT. STHS) THEN
+        WRITE(13,*) 'For list:',ELISTi
+        WRITE(13,*) 'Number of atoms passed to PRNEL is greater 
+     &  than the number of atoms to be considered a molecule',STHS
+       ELSE
+!
+      DO I=1,NTYPES
+         ELCNT(I) = 0
+      ENDDO 
+!
+      DO C=1,CNT
+        A=ELISTi(C)
+        N=KTYPEi(A)
+        ELCNT(N) = ELCNT(N) + 1
+      ENDDO
+!
+      WRITE(PREL,1000)
+      PCNT = 0
+      DO I=1,NTYPES
+       C =  ELCNT(I)
+       ID = ATYPE(I)
+       IF( C.GT.0.AND.C.LT.10 ) THEN
+         IF( PCNT.EQ.0 ) THEN
+           WRITE(PREL,001) ID,C
+         ELSEIF( PCNT.EQ.4 ) THEN
+           WRITE(PREL,004) PREL,ID,C
+         ELSEIF( PCNT.EQ.5 ) THEN
+           WRITE(PREL,005) PREL,ID,C
+         ELSEIF( PCNT.EQ.6 ) THEN
+           WRITE(PREL,006) PREL,ID,C
+         ELSEIF( PCNT.EQ.7 ) THEN
+           WRITE(PREL,007) PREL,ID,C
+         ELSEIF( PCNT.EQ.8 ) THEN
+           WRITE(PREL,008) PREL,ID,C
+         ELSEIF( PCNT.EQ.9 ) THEN
+           WRITE(PREL,009) PREL,ID,C
+         ELSEIF( PCNT.EQ.10 ) THEN
+           WRITE(PREL,010) PREL,ID,C
+          ELSEIF( PCNT.EQ.11 ) THEN
+           WRITE(PREL,011) PREL,ID,C
+         ELSEIF( PCNT.EQ.12 ) THEN
+           WRITE(PREL,012) PREL,ID,C
+         ELSEIF( PCNT.EQ.13 ) THEN
+           WRITE(PREL,013) PREL,ID,C
+         ELSEIF( PCNT.EQ.14 ) THEN
+           WRITE(PREL,014) PREL,ID,C
+         ELSEIF( PCNT.EQ.15 ) THEN
+           WRITE(PREL,015) PREL,ID,C
+         ELSEIF( PCNT.EQ.16 ) THEN
+           WRITE(PREL,016) PREL,ID,C
+         ELSEIF( PCNT.EQ.17 ) THEN
+           WRITE(PREL,017) PREL,ID,C
+         ELSEIF( PCNT.EQ.18 ) THEN
+           WRITE(PREL,018) PREL,ID,C
+         ELSEIF( PCNT.EQ.19 ) THEN
+           WRITE(PREL,019) PREL,ID,C
+         ELSEIF( PCNT.EQ.20 ) THEN
+           WRITE(PREL,020) PREL,ID,C
+        ENDIF 
+         PCNT = PCNT + 4
+       ELSEIF( C.GE.10.AND.C.LT.100 ) THEN
+         IF( PCNT.EQ.0 ) THEN
+           WRITE(PREL,101) ID,C
+         ELSEIF( PCNT.EQ.4 ) THEN
+           WRITE(PREL,104) PREL,ID,C
+         ELSEIF( PCNT.EQ.5 ) THEN
+           WRITE(PREL,105) PREL,ID,C
+         ELSEIF( PCNT.EQ.6 ) THEN
+           WRITE(PREL,106) PREL,ID,C
+         ELSEIF( PCNT.EQ.7 ) THEN
+           WRITE(PREL,107) PREL,ID,C
+         ELSEIF( PCNT.EQ.8 ) THEN
+           WRITE(PREL,108) PREL,ID,C
+         ELSEIF( PCNT.EQ.9 ) THEN
+           WRITE(PREL,109) PREL,ID,C
+         ELSEIF( PCNT.EQ.10 ) THEN
+           WRITE(PREL,110) PREL,ID,C
+          ELSEIF( PCNT.EQ.11 ) THEN
+           WRITE(PREL,111) PREL,ID,C
+         ELSEIF( PCNT.EQ.12 ) THEN
+           WRITE(PREL,112) PREL,ID,C
+         ELSEIF( PCNT.EQ.13 ) THEN
+           WRITE(PREL,113) PREL,ID,C
+         ELSEIF( PCNT.EQ.14 ) THEN
+           WRITE(PREL,114) PREL,ID,C
+         ELSEIF( PCNT.EQ.15 ) THEN
+           WRITE(PREL,115) PREL,ID,C
+         ELSEIF( PCNT.EQ.16 ) THEN
+           WRITE(PREL,116) PREL,ID,C
+         ELSEIF( PCNT.EQ.17 ) THEN
+           WRITE(PREL,117) PREL,ID,C
+         ELSEIF( PCNT.EQ.18 ) THEN
+           WRITE(PREL,118) PREL,ID,C
+         ELSEIF( PCNT.EQ.19 ) THEN
+           WRITE(PREL,119) PREL,ID,C
+         ELSEIF( PCNT.EQ.20 ) THEN
+           WRITE(PREL,120) PREL,ID,C
+        ENDIF 
+        PCNT = PCNT + 5
+       ELSEIF( C.GE.100.AND.C.LT.1000 ) THEN
+         IF( PCNT.EQ.0 ) THEN
+           WRITE(PREL,201) ID,C
+         ELSEIF( PCNT.EQ.4 ) THEN
+           WRITE(PREL,204) PREL,ID,C
+         ELSEIF( PCNT.EQ.5 ) THEN
+           WRITE(PREL,205) PREL,ID,C
+         ELSEIF( PCNT.EQ.6 ) THEN
+           WRITE(PREL,206) PREL,ID,C
+         ELSEIF( PCNT.EQ.7 ) THEN
+           WRITE(PREL,207) PREL,ID,C
+         ELSEIF( PCNT.EQ.8 ) THEN
+           WRITE(PREL,208) PREL,ID,C
+         ELSEIF( PCNT.EQ.9 ) THEN
+           WRITE(PREL,209) PREL,ID,C
+         ELSEIF( PCNT.EQ.10 ) THEN
+           WRITE(PREL,210) PREL,ID,C
+          ELSEIF( PCNT.EQ.11 ) THEN
+           WRITE(PREL,211) PREL,ID,C
+         ELSEIF( PCNT.EQ.12 ) THEN
+           WRITE(PREL,212) PREL,ID,C
+         ELSEIF( PCNT.EQ.13 ) THEN
+           WRITE(PREL,213) PREL,ID,C
+         ELSEIF( PCNT.EQ.14 ) THEN
+           WRITE(PREL,214) PREL,ID,C
+         ELSEIF( PCNT.EQ.15 ) THEN
+           WRITE(PREL,215) PREL,ID,C
+         ELSEIF( PCNT.EQ.16 ) THEN
+           WRITE(PREL,216) PREL,ID,C
+         ELSEIF( PCNT.EQ.17 ) THEN
+           WRITE(PREL,217) PREL,ID,C
+         ELSEIF( PCNT.EQ.18 ) THEN
+           WRITE(PREL,218) PREL,ID,C
+         ELSEIF( PCNT.EQ.19 ) THEN
+           WRITE(PREL,219) PREL,ID,C
+         ELSEIF( PCNT.EQ.20 ) THEN
+           WRITE(PREL,220) PREL,ID,C
+        ENDIF 
+        PCNT = PCNT + 6
+       ELSEIF( C.GE.1000.AND.C.LT.10000 ) THEN
+         IF( PCNT.EQ.0 ) THEN
+           WRITE(PREL,301) ID,C
+         ELSEIF( PCNT.EQ.4 ) THEN
+           WRITE(PREL,304) PREL,ID,C
+         ELSEIF( PCNT.EQ.5 ) THEN
+           WRITE(PREL,305) PREL,ID,C
+         ELSEIF( PCNT.EQ.6 ) THEN
+           WRITE(PREL,306) PREL,ID,C
+         ELSEIF( PCNT.EQ.7 ) THEN
+           WRITE(PREL,307) PREL,ID,C
+         ELSEIF( PCNT.EQ.8 ) THEN
+           WRITE(PREL,308) PREL,ID,C
+         ELSEIF( PCNT.EQ.9 ) THEN
+           WRITE(PREL,309) PREL,ID,C
+         ELSEIF( PCNT.EQ.10 ) THEN
+           WRITE(PREL,310) PREL,ID,C
+          ELSEIF( PCNT.EQ.11 ) THEN
+           WRITE(PREL,311) PREL,ID,C
+         ELSEIF( PCNT.EQ.12 ) THEN
+           WRITE(PREL,312) PREL,ID,C
+         ELSEIF( PCNT.EQ.13 ) THEN
+           WRITE(PREL,313) PREL,ID,C
+         ELSEIF( PCNT.EQ.14 ) THEN
+           WRITE(PREL,314) PREL,ID,C
+         ELSEIF( PCNT.EQ.15 ) THEN
+           WRITE(PREL,315) PREL,ID,C
+         ELSEIF( PCNT.EQ.16 ) THEN
+           WRITE(PREL,316) PREL,ID,C
+         ELSEIF( PCNT.EQ.17 ) THEN
+           WRITE(PREL,317) PREL,ID,C
+         ELSEIF( PCNT.EQ.18 ) THEN
+           WRITE(PREL,318) PREL,ID,C
+         ELSEIF( PCNT.EQ.19 ) THEN
+           WRITE(PREL,319) PREL,ID,C
+         ELSEIF( PCNT.EQ.20 ) THEN
+           WRITE(PREL,320) PREL,ID,C
+        ENDIF 
+         PCNT = PCNT + 7
+       ELSEIF( C.GE.10000.AND.C.LT.100000 ) THEN
+         IF( PCNT.EQ.0 ) THEN
+           WRITE(PREL,401) ID,C
+         ELSEIF( PCNT.EQ.4 ) THEN
+           WRITE(PREL,404) PREL,ID,C
+         ELSEIF( PCNT.EQ.5 ) THEN
+           WRITE(PREL,405) PREL,ID,C
+         ELSEIF( PCNT.EQ.6 ) THEN
+           WRITE(PREL,406) PREL,ID,C
+         ELSEIF( PCNT.EQ.7 ) THEN
+           WRITE(PREL,407) PREL,ID,C
+         ELSEIF( PCNT.EQ.8 ) THEN
+           WRITE(PREL,408) PREL,ID,C
+         ELSEIF( PCNT.EQ.9 ) THEN
+           WRITE(PREL,409) PREL,ID,C
+         ELSEIF( PCNT.EQ.10 ) THEN
+           WRITE(PREL,410) PREL,ID,C
+          ELSEIF( PCNT.EQ.11 ) THEN
+           WRITE(PREL,411) PREL,ID,C
+         ELSEIF( PCNT.EQ.12 ) THEN
+           WRITE(PREL,412) PREL,ID,C
+         ELSEIF( PCNT.EQ.13 ) THEN
+           WRITE(PREL,413) PREL,ID,C
+         ELSEIF( PCNT.EQ.14 ) THEN
+           WRITE(PREL,414) PREL,ID,C
+         ELSEIF( PCNT.EQ.15 ) THEN
+           WRITE(PREL,415) PREL,ID,C
+         ELSEIF( PCNT.EQ.16 ) THEN
+           WRITE(PREL,416) PREL,ID,C
+         ELSEIF( PCNT.EQ.17 ) THEN
+           WRITE(PREL,417) PREL,ID,C
+         ELSEIF( PCNT.EQ.18 ) THEN
+           WRITE(PREL,418) PREL,ID,C
+         ELSEIF( PCNT.EQ.19 ) THEN
+           WRITE(PREL,419) PREL,ID,C
+         ELSEIF( PCNT.EQ.20 ) THEN
+           WRITE(PREL,420) PREL,ID,C
+        ENDIF 
+         PCNT = PCNT + 8
+       ELSEIF( C.NE.0 )THEN
+         WRITE(13,*)'component too big to print',ID,C       
+       ENDIF
+      ENDDO 
+      ENDIF      
+      ENDIF      
+!
+ 1000 FORMAT('')
+ 001  FORMAT(A2,'_',I1)
+ 004  FORMAT(A4,A2,'_',I1)
+ 005  FORMAT(A5,A2,'_',I1)
+ 006  FORMAT(A6,A2,'_',I1)
+ 007  FORMAT(A7,A2,'_',I1)
+ 008  FORMAT(A8,A2,'_',I1)
+ 009  FORMAT(A9,A2,'_',I1)
+ 010  FORMAT(A10,A2,'_',I1)
+ 011  FORMAT(A11,A2,'_',I1)
+ 012  FORMAT(A12,A2,'_',I1)
+ 013  FORMAT(A13,A2,'_',I1)
+ 014  FORMAT(A14,A2,'_',I1)
+ 015  FORMAT(A15,A2,'_',I1)
+ 016  FORMAT(A16,A2,'_',I1)
+ 017  FORMAT(A17,A2,'_',I1)
+ 018  FORMAT(A18,A2,'_',I1)
+ 019  FORMAT(A19,A2,'_',I1)
+ 020  FORMAT(A20,A2,'_',I1)
+ 101  FORMAT(A2,'_',I2)
+ 104  FORMAT(A4,A2,'_',I2)
+ 105  FORMAT(A5,A2,'_',I2)
+ 106  FORMAT(A6,A2,'_',I2)
+ 107  FORMAT(A7,A2,'_',I2)
+ 108  FORMAT(A8,A2,'_',I2)
+ 109  FORMAT(A9,A2,'_',I2)
+ 110  FORMAT(A10,A2,'_',I2)
+ 111  FORMAT(A11,A2,'_',I2)
+ 112  FORMAT(A12,A2,'_',I2)
+ 113  FORMAT(A13,A2,'_',I2)
+ 114  FORMAT(A14,A2,'_',I2)
+ 115  FORMAT(A15,A2,'_',I2)
+ 116  FORMAT(A16,A2,'_',I2)
+ 117  FORMAT(A17,A2,'_',I2)
+ 118  FORMAT(A18,A2,'_',I2)
+ 119  FORMAT(A19,A2,'_',I2)
+ 120  FORMAT(A20,A2,'_',I2)
+ 201  FORMAT(A2,'_',I3)
+ 204  FORMAT(A4,A2,'_',I3)
+ 205  FORMAT(A5,A2,'_',I3)
+ 206  FORMAT(A6,A2,'_',I3)
+ 207  FORMAT(A7,A2,'_',I3)
+ 208  FORMAT(A8,A2,'_',I3)
+ 209  FORMAT(A9,A2,'_',I3)
+ 210  FORMAT(A10,A2,'_',I3)
+ 211  FORMAT(A11,A2,'_',I3)
+ 212  FORMAT(A12,A2,'_',I3)
+ 213  FORMAT(A13,A2,'_',I3)
+ 214  FORMAT(A14,A2,'_',I3)
+ 215  FORMAT(A15,A2,'_',I3)
+ 216  FORMAT(A16,A2,'_',I3)
+ 217  FORMAT(A17,A2,'_',I3)
+ 218  FORMAT(A18,A2,'_',I3)
+ 219  FORMAT(A19,A2,'_',I3)
+ 220  FORMAT(A20,A2,'_',I3)
+ 301  FORMAT(A2,'_',I4)
+ 304  FORMAT(A4,A2,'_',I4)
+ 305  FORMAT(A5,A2,'_',I4)
+ 306  FORMAT(A6,A2,'_',I4)
+ 307  FORMAT(A7,A2,'_',I4)
+ 308  FORMAT(A8,A2,'_',I4)
+ 309  FORMAT(A9,A2,'_',I4)
+ 310  FORMAT(A10,A2,'_',I4)
+ 311  FORMAT(A11,A2,'_',I4)
+ 312  FORMAT(A12,A2,'_',I4)
+ 313  FORMAT(A13,A2,'_',I4)
+ 314  FORMAT(A14,A2,'_',I4)
+ 315  FORMAT(A15,A2,'_',I4)
+ 316  FORMAT(A16,A2,'_',I4)
+ 317  FORMAT(A17,A2,'_',I4)
+ 318  FORMAT(A18,A2,'_',I4)
+ 319  FORMAT(A19,A2,'_',I4)
+ 320  FORMAT(A20,A2,'_',I4)
+ 401  FORMAT(A2,'_',I5)
+ 404  FORMAT(A4,A2,'_',I5)
+ 405  FORMAT(A5,A2,'_',I5)
+ 406  FORMAT(A6,A2,'_',I5)
+ 407  FORMAT(A7,A2,'_',I5)
+ 408  FORMAT(A8,A2,'_',I5)
+ 409  FORMAT(A9,A2,'_',I5)
+ 410  FORMAT(A10,A2,'_',I5)
+ 411  FORMAT(A11,A2,'_',I5)
+ 412  FORMAT(A12,A2,'_',I5)
+ 413  FORMAT(A13,A2,'_',I5)
+ 414  FORMAT(A14,A2,'_',I5)
+ 415  FORMAT(A15,A2,'_',I5)
+ 416  FORMAT(A16,A2,'_',I5)
+ 417  FORMAT(A17,A2,'_',I5)
+ 418  FORMAT(A18,A2,'_',I5)
+ 419  FORMAT(A19,A2,'_',I5)
+ 420  FORMAT(A20,A2,'_',I5)
+      RETURN
+      END SUBROUTINE PRNEL
+

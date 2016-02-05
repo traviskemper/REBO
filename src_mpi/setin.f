@@ -203,6 +203,8 @@ C
       USE MPIvars
       USE STRUCTR
       USE SPECIF
+      USE ANALYSIS
+      USE BEAM
 !
       IMPLICIT none
 !

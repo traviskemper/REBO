@@ -15,6 +15,7 @@ C  create nieghbor list based on rebo cut offs
       SUBROUTINE nborlst 
 
       USE MPIvars
+      USE ANALYSIS
       USE STRUCTR
       USE POTS
 

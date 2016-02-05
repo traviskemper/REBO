@@ -6,6 +6,7 @@
        USE STRUCTR 
        USE specif 
        USE POTS
+       USE ANALYSIS
        USE MDSTP
 !
        IMPLICIT none
