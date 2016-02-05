@@ -59,7 +59,24 @@ C      include 'reflect.f'
       INCLUDE 'shift.f'
       INCLUDE 'cent.f'
       INCLUDE 'add_force.f'
-!
+! Post analysis routines
+      INCLUDE 'set_anly.f'
+      INCLUDE 'molcheck.f'
+      INCLUDE 'masspec.f'
+      INCLUDE 'cleargas.f'
+      INCLUDE 'comas.f'
+      INCLUDE 'react.f'
+      INCLUDE 'prnel.f'
+      INCLUDE 'deprof.f'
+!      INCLUDE 'nborlst.f'
+!      INCLUDE 'anbond.f'
+C Beam builder
+      INCLUDE 'bb.f'
+      INCLUDE 'mkbeam.f'
+      INCLUDE 'beamtime.f'
+
+
+
 c tight binding
 C      include 'E_corr.f'
 C      include 'dsmooth.f'

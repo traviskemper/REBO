@@ -1,0 +1,283 @@
+add_force.f
+allocate_arrays.f
+anbond.f
+arrange_cell_node.f
+bb.f
+bcuint.f
+beamtime.f
+cagut_linklist.f
+caguts.f
+caguts_nabor_cell.f
+cent.f
+checking_center.f
+cleargas.f
+36c36
+<      &,SUBMXi,SMN(2,3),MVEL(3)
+---
+>      &,SUBMXi,SMN(2,3)
+77c77
+<         CALL COMAS(ECNT,COM,MOLM,MVEL)
+---
+>         CALL COMAS(ECNT,ELIST,ELCNT,COM,MOLM)
+close_file.f
+comas.f
+11c11
+<       SUBROUTINE COMAS(CNT,COM,MOLM,MVEL)
+---
+>       SUBROUTINE COMAS(CNT,COM,MOLM)
+16d15
+<       USE SPECIF
+24c23
+<       REAL*8 :: EM,MOLM,MMA(3),COM(3),MVEL(3)
+---
+>       REAL*8 :: EM,MOLM,MMA(3),COM(3)
+37d35
+<       MVEL(:)= 0.0d0 
+49d46
+<           MVEL(D) = MVEL(D) + R1i(D,I)/DELTA 
+55d51
+<         MVEL(D) = MVEL(D)/FLOAT(CNT)
+comparison.f
+deallocate_arrays.f
+default.f
+91,92d90
+<       MNDEPV = -0.001d0 ! minimum velocity to be considered a beam molecule
+< 
+depanlv15.2.f
+deprof.f
+finding_center.f
+finding_neighbor2.f
+finding_neighbor3.f
+finding_neighbor4.f
+finding_pass_force.f
+finding_pi_force.f
+heat.f
+ljcont.f
+ljcset.f
+ljguts.f
+ljguts_linklist.f
+ljguts_nabor_cell.f
+ljgutsv6.f
+ljparam.f
+load.f
+main.f
+257,258c257
+<                  CALL molcheck
+<                  IF( LSTEP.NE.1 ) THEN 
+---
+>                   CALL molcheck
+265d263
+<                  ENDIF
+masspec.f
+26,27c26,27
+<      &     ,ECNT,ELCNT(RTYPES),NGM,NSM,NDGM,NDSM,M
+<       REAL*8 :: MOLM,COM(3),MVEL(3),VAVE,VSQR
+---
+>      &     ,ECNT,ELCNT(RTYPES),NGM,NSM
+>       REAL*8 :: MOLM,COM(3)
+30d29
+<       LOGICAL :: DEPMOL
+35d33
+<       GMVAVE(:) = 0.0d0
+49d46
+<           IF( IM.GT.SUBNA)  DEPMOL = .TRUE.
+52,59c49
+<         CALL COMAS(ECNT,COM,MOLM,MVEL)
+< !       Make sure not beam 
+<         IF( MVEL(DEPD).LT.MNDEPV ) GOTO 1001
+<         VSQR = 0.0d0
+<         DO M = 1,3
+<           VSQR = VSQR + MVEL(M)*MVEL(M)
+<         ENDDO
+<         VAVE = SQRT(VSQR)
+---
+>         CALL COMAS(ECNT,COM,MOLM)
+67d56
+<               IF(DEPMOL) MNCNTi(3,MT) = MNCNTi(3,MT) + 1
+70,71d58
+<               IF(DEPMOL) MNCNTi(4,MT) = MNCNTi(4,MT) + 1
+<               GMVAVE(MT) = GMVAVE(MT) + VAVE
+85d71
+<           IF(DEPMOL) MNCNTi(3,MT) = MNCNTi(3,MT) + 1
+88,89d73
+<           IF(DEPMOL) MNCNTi(4,MT) = MNCNTi(4,MT) + 1
+<           GMVAVE(MT) = GMVAVE(MT) + VAVE
+101,102d84
+<         NDSM =  MNCNTi(3,MT)       !Number of molc of this in sub
+<         NDGM =  MNCNTi(4,MT)       !Number of molc of this in gas
+105,106c87
+<         MVEL = GMVAVE(MT)/NGM
+<         WRITE(28,2701) N,TTIME,MT,PREL,MOLM,NGM,NSM,NDGM,NDSM,MVEL
+---
+>         WRITE(28,2701) N,TTIME,MT,PREL,MOLM,NGM,NSM
+111c92
+<  2701 FORMAT(I10,F14.2,I6,' ',A35,F10.6,' AMU',4I6,F12.6)
+---
+>  2701 FORMAT(I10,F14.2,I6,' ',A35,F10.6,' AMU',2I6)
+139c120
+<       REAL*8 :: MOLM,COM(3),DELM,MVEL(3)
+---
+>       REAL*8 :: MOLM,COM(3),DELM
+166c147
+<         CALL COMAS(ECNT,COM,MOLM,MVEL)
+---
+>         CALL COMAS(ECNT,COM,MOLM)
+minimize.f
+mkbeam.f
+model.f
+module_analysis.f
+24c24
+<       REAL*8 :: MMASi(MMX),MMASo(MMX),SMMASi(MMX),GMVAVE(MMX)
+---
+>       REAL*8 :: MMASi(MMX),MMASo(MMX),SMMASi(MMX)
+49,51d48
+< ! Composition
+<       INTEGER, ALLOCATABLE :: ELCOMP(:,:)
+<       REAL*8, ALLOCATABLE :: GASKE(:)
+module_arrays.f
+module_beam.f
+module_contm.f
+module_dynarray.f
+module_MDSTP.f
+module_MPI.f
+module_parameters.f
+9c9
+<       INTEGER :: DMS,NCC,MNDEPV
+---
+>       INTEGER :: DMS,NCC
+module_pot.f
+module_specif.f
+module_spline.f
+module_STRUCTR.f
+module_tables.f
+module_TM.f
+molcheck.f
+move_tip.f
+mtable.f
+nborlst.f
+neighbor_node.f
+node_cell_range.f
+open_file.f
+overwr.f
+oxybcuint.f
+param.f
+passing_atom_node.f
+passing_force_node.f
+passing_node.f
+passing_pi_force.f
+pibondCHF.f
+pibondCHO.f
+pibondCHS.f
+pibond.f
+pred_corr.f
+prnel.f
+radic.f
+random_numbers.f
+react.f
+38,39c38,39
+<      & ,ID,D,M
+<       REAL*8 :: COM(3),MOLM,DP,DPTH,DPTHDIV,VSQR,MVEL(3)
+---
+>      & ,ID,D
+>       REAL*8 :: COM(3),MOLM,DP,DPTH,DPTHDIV
+68,71c68,70
+<         JBEGINi=NABORSi(I)
+<         JENDi=NABORSi(I+1)-1
+<         NNi =JENDi - JBEGINi   + 1
+<         KI = KTYPEi(I)
+---
+>           JBEGINi=NABORSi(I)
+>           JENDi=NABORSi(I+1)-1
+>           NNi =JENDi - JBEGINi   + 1
+81,91d79
+< !       Record atoms in gas and sub and gas KE
+<         IF ( R0(DEPD,I).GT.SUBMN.AND.R0(DEPD,I).LT.SUBCT ) THEN
+<           ELCOMP(1,KI) = ELCOMP(1,KI) +1
+<         ELSE 
+<           ELCOMP(2,KI) = ELCOMP(2,KI) +1
+<           VSQR = 0.0d0
+<           DO M = 1,3
+<             VSQR = VSQR + R1(M,I)*R1(M,I)/DELTA/DELTA
+<           ENDDO 
+<           GASKE(KI) = GASKE(KI) + XMASS(KI)*VSQR*ECON
+<         ENDIF
+168c156
+< !                    CALL COMAS(ECNTo,COM,MOLM,MVEL)
+---
+> !                    CALL COMAS(ECNTo,COM,MOLM)
+221c209
+< !                    CALL COMAS(ECNTi,COM,MOLM,MVEL)
+---
+> !                    CALL COMAS(ECNTi,COM,MOLM)
+368c356
+< !                    CALL COMAS(ECNTo,COM,MOLM,MVEL)
+---
+> !                    CALL COMAS(ECNTo,COM,MOLM)
+421c409
+< !                    CALL COMAS(ECNTi,COM,MOLM,MVEL)
+---
+> !                    CALL COMAS(ECNTi,COM,MOLM)
+594c582
+< !                    CALL COMAS(ECNTo,COM,MOLM,MVEL)
+---
+> !                    CALL COMAS(ECNTo,COM,MOLM)
+647c635
+< !                    CALL COMAS(ECNTi,COM,MOLM,MVEL)
+---
+> !                    CALL COMAS(ECNTi,COM,MOLM)
+728c716
+< !
+---
+> 
+786c774
+< !     Print hybridization and other element properties
+---
+> !
+788,792d775
+<      & ,ELCOMP(1,icarb),ELCOMP(2,icarb),GASKE(icarb)
+<      & ,ELCOMP(1,ihyd),ELCOMP(2,ihyd),GASKE(ihyd)
+<      & ,ELCOMP(1,isulfur),ELCOMP(2,isulfur),GASKE(isulfur)
+<      & ,ELCOMP(1,ioxygen),ELCOMP(2,ioxygen),GASKE(ioxygen)
+<      & ,ELCOMP(1,iflor),ELCOMP(2,iflor),GASKE(iflor)
+821c804
+<  311  FORMAT(F16.1,I12,3I10,5(3I8,F10.6))
+---
+>  311  FORMAT(F16.1,I12,3I10)
+readwrite.f
+45c45
+<      &,'+    Version Parellel 8.03                                  +' 
+---
+>      &,'+    Version Parellel 7.49                                  +' 
+265c265
+<          IF(RECAN)OPEN(UNIT=31,FILE='out.element',STATUS='UNKNOWN')
+---
+>          IF(RECAN)OPEN(UNIT=31,FILE='out.hybrid',STATUS='UNKNOWN')
+1020,1021c1020,1021
+<   350 FORMAT(I8,I5,3E20.11,I3,2I8)
+<   360 FORMAT(I8,3E20.11)
+---
+>   350 FORMAT(2I5,3E20.11,I3,2I8)
+>   360 FORMAT(I7,3E20.11)
+reflect.f
+set_anly.f
+79,84d78
+<           CLOSE(27)
+< !         Re initialize reaction file so it does not get too long
+<           OPEN(UNIT=27,FILE='out.react',STATUS='unknown')
+<           WRITE(27,'(A70)') DTITLE
+<           WRITE(27,*) 'Substrate info:,# atoms, min, max, PE, KE, TEMP'
+<           WRITE(27,2701) SUBNA,SUBMN,SUBMX,SUBTPEN,SUBTKEN,SUBTEMP
+135d128
+<  2701 FORMAT(I10,2F16.8,3F14.3)
+setin.f
+settherm.f
+shift.f
+sili_germ.f
+splines.f
+summing_all_force.f
+tcuint.f
+test.f
+thermostats.f
+tor.f
+transform_coord.f
+xmol.f

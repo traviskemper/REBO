@@ -1,0 +1,10 @@
+rm: cannot remove `*.x': No such file or directory
+/opt/intel/mpich-1.2.7p1/lib/libmpich.a(p4_secure.o)(.text+0x87): In function `start_slave':
+: warning: Using 'getpwuid' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+/opt/intel/mpich-1.2.7p1/lib/libmpich.a(p4_sock_util.o)(.text+0x155c): In function `gethostbyname_p4':
+: warning: Using 'gethostbyname' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+rm: cannot remove `*.x': No such file or directory
+/opt/intel/mpich-1.2.7p1/lib/libmpich.a(p4_secure.o)(.text+0x87): In function `start_slave':
+: warning: Using 'getpwuid' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+/opt/intel/mpich-1.2.7p1/lib/libmpich.a(p4_sock_util.o)(.text+0x155c): In function `gethostbyname_p4':
+: warning: Using 'gethostbyname' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
